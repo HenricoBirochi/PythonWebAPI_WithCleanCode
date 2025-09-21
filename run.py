@@ -1,7 +1,4 @@
-def do_something():
-    minha_variavel = 10
-    print("Hello World!", minha_variavel)
+from src.main.server.server import app
 
-def DoSomething():
-    outra_variavel = 20
-    print("Goodbye World!")
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=3000)
