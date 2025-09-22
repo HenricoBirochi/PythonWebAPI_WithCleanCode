@@ -5,17 +5,33 @@ from src.controllers.user_creator import UserCreator
 # Apenas usa o que esta aqui dentro e a classe que voce quer testar
 #classe Mock
 class UserRepositoryMock:
+    def __init__(self):
+        self.insert_user_att = {}
+        self.select_user_att = {}
+
     def insert_user(self, person_name: str, age: int, height: float) -> None:
+        self.insert_user_att["person_name"] = person_name
+        self.insert_user_att["age"] = age
+        self.insert_user_att["height"] = height
         return
 
     def select_user(self, person_name: str) -> list:
+        self.select_user_att["person_name"] = person_name
         return []
 
 class UserRepositoryMockWithError:
+    def __init__(self):
+        self.insert_user_att = {}
+        self.select_user_att = {}
+
     def insert_user(self, person_name: str, age: int, height: float) -> None:
+        self.insert_user_att["person_name"] = person_name
+        self.insert_user_att["age"] = age
+        self.insert_user_att["height"] = height
         return
 
     def select_user(self, person_name: str) -> list:
+        self.select_user_att["person_name"] = person_name
         return [1, 2, 3]  # Simula que o usuario ja existe
 
 
