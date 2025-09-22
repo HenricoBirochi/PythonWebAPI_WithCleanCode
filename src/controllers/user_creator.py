@@ -1,4 +1,5 @@
 from src.models.repositories.interfaces.users_repository import UsersRepositoryInterface
+from src.errors.error_types.http_bad_request import HttpBadRequestError
 from .interfaces.user_creator import UserCreatorInterface
 
 class UserCreator(UserCreatorInterface):
@@ -15,7 +16,7 @@ class UserCreator(UserCreatorInterface):
         if (not select_users or len(select_users) == 0):
             return
         
-        raise Exception("Usuario ja cadastrado")
+        raise HttpBadRequestError("Usuario ja cadastrado")
 
     def __create_new_user(self, person_name: str, age: int, height: float) -> None:
         # outras atividades caso necessario

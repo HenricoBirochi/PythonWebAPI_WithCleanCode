@@ -1,4 +1,5 @@
 from src.controllers.interfaces.user_creator import UserCreatorInterface
+from src.errors.error_handler import handle_errors
 from .http_types.http_request import HttpRequest
 from .http_types.http_response import HttpResponse
 
@@ -16,4 +17,4 @@ class UserCreatorView:
 
             return HttpResponse(status_code=201, body=response)
         except Exception as exception:
-            return HttpResponse(status_code=500, body={"error": str(exception)})
+            return handle_errors(exception)
