@@ -1,7 +1,7 @@
 import pytest
-from .db_connection_handler import DbConnectionHandler
+from src.models.connection.db_connection_handler import DbConnectionHandler
 
-@pytest.mark.skip(reason="Integration test that requires a database connection") # Ele pula esse teste
+@pytest.mark.skip(reason="Test that makes a connection on database") # Ele pula esse teste
 def test_db_connection_handler(): # Para voltar a rodar o teste, remova essa linha de cima
     db_conn_handler = DbConnectionHandler()
 
