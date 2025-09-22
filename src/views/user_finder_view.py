@@ -8,7 +8,7 @@ class UserFinderView:
 
     def handle_find_by_person_name(self, req: HttpRequest) -> HttpResponse:
         try:
-            person_name = req.params["person_name"]
+            person_name = req.param["person_name"]
             response = self.__controller.find_by_person_name(person_name)
 
             return HttpResponse(status_code=200, body=response)
